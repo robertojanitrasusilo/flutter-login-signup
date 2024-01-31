@@ -1,0 +1,20 @@
+CREATE DATABASE joki_crud_yogie;
+USE  joki_crud_yogie;
+
+
+CREATE TABLE LOGIN (
+    ID INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE REGISTER (
+    ID INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    PRIMARY KEY (ID)
+);
+
+SELECT * FROM login;
+SELECT * FROM register;
