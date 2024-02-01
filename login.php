@@ -11,8 +11,14 @@ $result = mysqli_query($db, $sql);
 $count = mysqli_num_rows($result);
 
 if ($count == 1) {
-    # code...
-    echo json_encode("Success");
+    $row = mysqli_fetch_assoc($result);
+    $isAdmin = $row['isAdmin'];
+    if ($isAdmin == 1) {
+        # code...
+        echo "Admin";
+    } else {
+        echo "Success";    
+    } // Get the isAdmin column value
 } else {
-    echo json_encode("Error");
+    echo "Email or password is wrong";
 }
