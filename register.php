@@ -1,8 +1,9 @@
 <?php
-$db = mysqli_connect('localhost', 'root', '', 'joki_crud_yogie');
+$db = mysqli_connect('sql200.infinityfree.com', 'if0_35898056', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
 
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
+    $nama = $_POST['nama'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -14,8 +15,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     if ($count == 1) {
         echo "Error";
     } else {
-        $sql = "INSERT INTO login (email, password,isAdmin) VALUES ('$email', '$password',$0)";
-        // $result = mysqli_query($db, $sql);
+        $sql = "INSERT INTO login (nama, email, password) VALUES ('$nama','$email', '$password')";
+        $result = mysqli_query($db, $sql);
         echo "Success";
     }
 } else {
