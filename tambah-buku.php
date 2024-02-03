@@ -1,17 +1,17 @@
 <?php
-$db = mysqli_connect('sql200.infinityfree.com', 'if0_35898056', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
+$db = mysqli_connect('localhost', 'root', '', 'joki_crud_yogie');
 
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis']) && isset($_POST['tahun']) && isset($_POST['deskripsi']) && isset($_FILES['foto'])) {
+if (isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis']) && isset($_POST['tahun']) && isset($_POST['deskripsi']) && isset($_FILES['foto']) && isset($_POST['tersedia'])) {
     $nama = $_POST['nama'];
     $penerbit = $_POST['penerbit'];
     $penulis = $_POST['penulis'];
     $tahun = $_POST['tahun'];
     $deskripsi = $_POST['deskripsi'];
-    $harga = $_POST['harga'];
+    $tersedia = $_POST['tersedia'];
 
     // File handling
     $foto = $_FILES['foto'];
@@ -23,7 +23,7 @@ if (isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis'
     move_uploaded_file($foto['tmp_name'], $fotoPath);
 
     // Assuming the table name is 'buku' and the column names are 'penerbit', 'penulis', 'tahun', 'deskripsi', 'foto', 'tersedia'
-    $sql = "INSERT INTO buku (nama, penerbit, penulis, tahun, deskripsi, foto, harga) VALUES ('$nama','$penerbit', '$penulis', '$tahun', '$deskripsi', '$fotoPath', '$harga')";
+    $sql = "INSERT INTO buku (nama, penerbit, penulis, tahun, deskripsi, foto, tersedia) VALUES ('$nama','$penerbit', '$penulis', '$tahun', '$deskripsi', '$fotoPath', '$tersedia')";
 
     // Execute the SQL query
     $result = mysqli_query($db, $sql);

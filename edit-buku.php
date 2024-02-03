@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('sql200.infinityfree.com', 'if0_35898056', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
+$db = mysqli_connect('localhost', 'root', ' ', 'joki_crud_yogie');
 
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
@@ -13,7 +13,6 @@ if (isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['penerbit']) &&
     $tahun = $_POST['tahun'];
     $deskripsi = $_POST['deskripsi'];
     $tersedia = $_POST['tersedia'];
-    $harga = $_POST['harga'];
 
     // File handling
     $foto = $_FILES['foto'];
