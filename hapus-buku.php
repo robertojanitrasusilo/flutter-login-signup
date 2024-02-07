@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('sql200.infinityfree.com', 'if0_35898056', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
+$db = mysqli_connect('localhost', '', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
 
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
@@ -20,4 +20,3 @@ if (isset($_POST['id'])) {
 } else {
     echo "Error: Book ID is not set";
 }
-?>

@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('sql200.infinityfree.com', 'if0_35898056', 'WM7xYPCMGuXtWZ ', 'if0_35898056_tugas_uas');
+$db = mysqli_connect('localhost', 'root', '', 'joki_crud_yogie');
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];

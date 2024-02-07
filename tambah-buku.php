@@ -16,12 +16,11 @@ if (isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis'
     // File handling
     $foto = $_FILES['foto'];
     $fotoName = uniqid() . '_' . $foto['name']; // Unique filename
-    $encodedFotoName = urlencode($fotoName); // URL-encoded filename
+    $encodedFotoName = urlencode($fotoName);  // URL-encoded filename
     $fotoPath = 'foto/' . $encodedFotoName; // Relative path to the 'foto' folder
 
     // Move the uploaded file to the 'foto' folder
     move_uploaded_file($foto['tmp_name'], $fotoPath);
-
     // Assuming the table name is 'buku' and the column names are 'penerbit', 'penulis', 'tahun', 'deskripsi', 'foto', 'tersedia'
     $sql = "INSERT INTO buku (nama, penerbit, penulis, tahun, deskripsi, foto, tersedia) VALUES ('$nama','$penerbit', '$penulis', '$tahun', '$deskripsi', '$fotoPath', '$tersedia')";
 
@@ -37,4 +36,4 @@ if (isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis'
 } else {
     echo "Error: One or more form fields are not set";
 }
-?>
+
