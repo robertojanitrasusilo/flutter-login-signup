@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect('localhost', 'root', ' ', 'joki_crud_yogie');
+$db = mysqli_connect('localhost', 'root', '', 'joki_crud_yogie');
 
 if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
@@ -24,7 +24,7 @@ if (isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['penerbit']) &&
     move_uploaded_file($foto['tmp_name'], $fotoPath);
 
     // Assuming the table name is 'buku' and the column names are 'nama', 'penerbit', 'penulis', 'tahun', 'deskripsi', 'foto', 'tersedia'
-    $sql = "UPDATE buku SET nama = '$nama', penerbit = '$penerbit', penulis = '$penulis', tahun = '$tahun', deskripsi = '$deskripsi', foto = '$fotoPath', tersedia = '$tersedia',harga = '$harga' WHERE id = $id";
+    $sql = "UPDATE buku SET nama = '$nama', penerbit = '$penerbit', penulis = '$penulis', tahun = '$tahun', deskripsi = '$deskripsi', foto = '$fotoPath', tersedia = '$tersedia' WHERE id = $id";
 
     // Execute the SQL query
     $result = mysqli_query($db, $sql);
