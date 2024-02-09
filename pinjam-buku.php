@@ -5,7 +5,7 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
     // Assuming the table name is 'buku' and the column name for the book ID is 'id'
-    $sql = "UPDATE buku SET tersedia = 1 WHERE id = $id";
+    $sql = "UPDATE buku SET tersedia = 1 WHERE id = " . $id;
 
     // Execute the SQL query
     // Note: Uncomment the following lines if you have a valid connection object ($db) and want to perform the query
