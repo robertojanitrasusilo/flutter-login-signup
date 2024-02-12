@@ -6,7 +6,7 @@ if (!$db) {
 }
 
 if (isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['penerbit']) && isset($_POST['penulis']) && isset($_POST['tahun']) && isset($_POST['deskripsi']) && isset($_FILES['foto']) && isset($_POST['tersedia'])) {
-    $id = $_POST['id'];
+    $id = (int) $_POST['id'];
     $nama = $_POST['nama'];
     $penerbit = $_POST['penerbit'];
     $penulis = $_POST['penulis'];
@@ -24,7 +24,7 @@ if (isset($_POST['id']) && isset($_POST['nama']) && isset($_POST['penerbit']) &&
     move_uploaded_file($foto['tmp_name'], $fotoPath);
 
     // Assuming the table name is 'buku' and the column names are 'nama', 'penerbit', 'penulis', 'tahun', 'deskripsi', 'foto', 'tersedia'
-    $sql = "UPDATE buku SET nama = '$nama', penerbit = '$penerbit', penulis = '$penulis', tahun = '$tahun', deskripsi = '$deskripsi', foto = '$fotoPath', tersedia = '$tersedia' WHERE id = '$id'";
+    $sql = "UPDATE buku SET nama = '$nama', penerbit = '$penerbit', penulis = '$penulis', tahun = '$tahun', deskripsi = '$deskripsi', foto = '$fotoPath', tersedia = '$tersedia' WHERE id = $id";
 
     // Execute the SQL query
     $result = mysqli_query($db, $sql);
